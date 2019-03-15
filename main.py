@@ -49,7 +49,7 @@ while is_game_ongoing is True:
         
     render_ui_missile(plr.ammo, screen, ui_elems)
   
-    if not plr.status is "dead":
+    if not plr.status is "dead" or level.status is "level_success":
         plr.move(moves_bools, plr.pos, is_jumping, pos_tiles, plr_graphics, level)  
     
     plr.draw(screen, plr_graphics)

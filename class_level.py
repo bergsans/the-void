@@ -44,15 +44,35 @@ class Level:
         display_time = "TIME: {0:d}".format(time)
         display_score = "SCORE: {0:d}".format(self.score)  
         this_font = font.SysFont('comicsans', 30, True)
-        GAME_OVER_FONT = font.SysFont('comicsans', 90, True)
-        game_over_text = "GAME OVER"
         time = this_font.render(display_time, 1, (0,230,0))
         score = this_font.render(display_score, 1, (0,230,0))
-        game_over = GAME_OVER_FONT.render(game_over_text, 1, (0,230,0))
+        
+        
         screen.blit(time, (300, 10))
         screen.blit(score, (450, 10))
 
         if self.status is "game_over":
+
+            GAME_OVER_FONT = font.SysFont('comicsans', 90, True)
+            game_over_text = "GAME OVER"
+            game_over = GAME_OVER_FONT.render(game_over_text, 1, (0,230,0))
             screen.blit(game_over, (100, 200))
+
+        if self.status is "level_success":
+            LEVEL_SUCCESS_FONT = font.SysFont('comicsans', 90, True)
+            SUCCESS_text = "SUCCESS"
+            success = LEVEL_SUCCESS_FONT.render(SUCCESS_text, 1, (0,230,0))
+            screen.blit(success, (100, 200))
+
+            success_score_font = font.SysFont('comicsans', 50, True)
+            success_score_font.render(display_score, 1, (0,230,0))
+            screen.blit(score, (100, 350))
+            
+
+
+
+
+
+
 
 

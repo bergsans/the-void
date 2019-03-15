@@ -79,9 +79,10 @@ def check_items(stuffs, itemsSrc, plr_pos, level):
             test_item = item.collision_test(plr_pos)
             if test_item is True:
                 if item.typeOf is "exit_door":
-                    level.score += 1000
-                    print(level.score)
-                    quit()
+                    if not level.status is "level_success":
+                        level.score += 1000
+                    level.status = "level_success"
+                    
                 else:
                     item.status = "inactive"
                     level.score += 10
