@@ -1,5 +1,7 @@
 from pygame import Rect, quit
 
+#from data import level
+
 class Astronaut:
 
     def __init__(self, pos, direction):
@@ -113,7 +115,7 @@ class Astronaut:
             elif self.direction is "move_left" or self.direction is "idle_left":
                 self.set_direction("jump_left")
 
-    def move(self, moves, pos, is_jumping, tiles, plr_graphics): 
+    def move(self, moves, pos, is_jumping, tiles, plr_graphics, level): 
    
          if self.direction is "idle_left" or self.direction is "idle_right":
               self.acc = 0
@@ -137,6 +139,9 @@ class Astronaut:
 
          self.pos.y += self.vel_y  
          self.vel_y += 0.2
+
+         if self.pos.y > 480:
+             level.status = "game_over"
 
          if self.vel_y > 3:
               self.vel_y = 3  

@@ -45,13 +45,12 @@ while is_game_ongoing is True:
         temp_time = 0
         time -= 1
     if time <= 0: 
- 
-        is_game_ongoing = False
+        level.status = "game_over"
         
     render_ui_missile(plr.ammo, screen, ui_elems)
   
     if not plr.status is "dead":
-        plr.move(moves_bools, plr.pos, is_jumping, pos_tiles, plr_graphics)  
+        plr.move(moves_bools, plr.pos, is_jumping, pos_tiles, plr_graphics, level)  
     
     plr.draw(screen, plr_graphics)
     render_explosions(explodingProjectiles, screen, explosionsSrc, plr)                          
