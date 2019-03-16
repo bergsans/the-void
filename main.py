@@ -1,4 +1,4 @@
-from pygame import init, display, mouse, FULLSCREEN, time, event, draw, QUIT, quit, K_ESCAPE, K_DOWN, K_LEFT, K_RIGHT, K_s, K_SPACE, K_UP, key, image, font, time, Rect, KEYDOWN, KEYUP 
+from pygame import init, display, mouse, FULLSCREEN, time, event, draw, QUIT, quit, K_ESCAPE, K_DOWN, K_LEFT, K_RIGHT, K_s, K_SPACE, K_UP, key, image, font, time, Rect, KEYDOWN, KEYUP, mixer
 
 import os
 from math import floor
@@ -28,6 +28,9 @@ time = 150
 temp_time = 0
 
 is_game_ongoing = True
+
+mixer.music.load(os.path.join("sounds", "background.mp3"))
+mixer.music.play(-1)
 
 
 while is_game_ongoing is True:
