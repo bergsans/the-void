@@ -11,7 +11,7 @@ class Astronaut:
         self.direction = direction
         self.ammo = 15
         self.sprite_count = 0
-        self.vel_x = 3
+        self.vel_x = 4
         self.vel_y = 0
         self.count_time_in_air = 0
         self.is_jumping = False
@@ -69,9 +69,9 @@ class Astronaut:
                 temp_dir = "run_left"
             elif self.direction is "move_right":
                 temp_dir = "run_right"
-            self.vel_x = 4
+            self.vel_x = 6
         if self.acc <= 40 and self.direction is "move_left" or self.direction is "move_left" and not self.status is "dead":
-            self.vel_x = 3
+            self.vel_x = 4
          
         screen.blit(plr_graphics[temp_dir][self.sprite_count], (320, self.pos.y))
         self.sprite_count_inc()

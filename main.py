@@ -121,5 +121,5 @@ while is_game_ongoing is True:
             is_shooting = False
 
     display.update()
-    clock.tick(60)
+    clock.tick(30)
 
