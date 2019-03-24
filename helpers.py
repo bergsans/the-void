@@ -1,4 +1,5 @@
-from pygame import Rect
+from pygame import Rect, mixer
+import os
 
 def create_fi_pattern(moves, speed):
     tempAddMoves = [];
