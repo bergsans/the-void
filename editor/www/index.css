@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+}
+
+#container {
+  width: 1014px;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: row;
+}
+
+#map {
+  width: 960px;
+}
+
+#tiles {
+  margin: 5px;
+  width: 50px;
+  display: flex;
+  flex-direction: column;  
+}
+
+#options {
+  width: 1014px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#save {
+  color: #008000;
+  margin-top: 2px;
+  width: 300px;
+  height: 40px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 16px; 
+  border: 1px solid #008000;
+  text-align: center;
+  line-height: 40px;
+  float: right;
+}
+#save:hover {
+  cursor:pointer;
+  background-color: #008000;
+  color: black;
+}
+
+input {
+  background-color: transparent;
+  border-radius:0;
+  border:none;
+  border: 1px solid #008000;
+  width: 300px;
+  color: #008000;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 16px;
+  text-align: center;
+  line-height: 40px;
+  height: 44px;
+  outline: none;
+}
+
+img {
+  margin: 2px;
+  padding: 2px;
+}
+
+canvas {
+  border: 2px solid white;
+}
+

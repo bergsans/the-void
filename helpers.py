@@ -1,6 +1,9 @@
 from pygame import Rect, mixer
 import os
 
+
+
+
 def create_fi_pattern(moves, speed):
     tempAddMoves = [];
     for move in moves:
@@ -53,6 +56,11 @@ def move_projectiles(shots, pos_tiles, enemies, plr, screen, projectiles, explod
 
             if shot.dist <= 0 or test_tiles is True:
                 shot.status = "not-active"
+                
+             
+                #explosion_sound.play()
+             
+           
                 if shot.direction is "right":
                     explodingProjectiles.append(Explosion("explode", (shot.x - 70), (shot.y - 70), (shot.abs_x - 70), (shot.abs_y - 70)))
                 else:
@@ -63,13 +71,6 @@ def render_explosions(explosions, screen, explosionsSrc, plr):
         if explosion.status is "explode":
             explosion.draw(plr.direction, plr.vel_x, screen, explosionsSrc)
 
-            # SOUND --------------------
-            mixer.music.load(os.path.join("sounds", "explosion.mp3"))
-            mixer.music.play()
-            # SOUND --------------------
-
-
-
 def check_death_by_foe(enemies, plr_graphics, plr_pos, level, plr):
     for enemy in enemies:
         if enemy.status is "active":
@@ -77,10 +78,6 @@ def check_death_by_foe(enemies, plr_graphics, plr_pos, level, plr):
             if test_foe is True:
                 plr.status = "dead"
                 level.status = "game_over"
-                # SOUND --------------------
-                mixer.music.load(os.path.join("sounds", "explosion.mp3"))
-                mixer.music.play()
-                # SOUND --------------------
 
 def check_items(stuffs, itemsSrc, plr_pos, level):
 
@@ -91,10 +88,7 @@ def check_items(stuffs, itemsSrc, plr_pos, level):
                 if item.typeOf is "exit_door":
                     if not level.status is "level_success":
                         level.score += 1000
-                        # SOUND --------------------
-                        mixer.music.load(os.path.join("sounds", "explosion.mp3"))
-                        mixer.music.play()
-                        # SOUND --------------------
+
                     level.status = "level_success"
                     
                 else:
