@@ -60,7 +60,7 @@ while is_game_ongoing is True:
     move_projectiles(shots, pos_tiles, foes, plr, screen, projectiles, explodingProjectiles, Explosion)
     render_items(itemsSrc, screen, items, plr.pos.x)
     check_items(items, itemsSrc, plr.pos, level)
-    render_foes(plr.pos.x, foes, screen, enemySrc)
+    render_foes(plr.pos.x, foes, screen, enemySrc, pos_tiles)
 
     check_death_by_foe(foes, plr_graphics, plr.pos, level, plr)
 

@@ -2,9 +2,6 @@ from pygame import Rect, mixer
 import os
 
 
-
-
-
 def create_fi_pattern(moves, speed):
     tempAddMoves = [];
     for move in moves:
@@ -18,10 +15,10 @@ def render_items(itemsSrc, screen, items, plr_x):
         if item.status is "active":
             item.draw(itemsSrc, screen, plr_x)
 
-def render_foes(plr_x, foes, screen, enemySrc):
+def render_foes(plr_x, foes, screen, enemySrc, tiles):
     for foe in foes:
         foe.draw(plr_x, screen, enemySrc)
-        foe.move(enemySrc)
+        foe.move(enemySrc, tiles)
 
 def render_ui_missile(ammo, screen, ui_elems):
     for missile_index in range(ammo):

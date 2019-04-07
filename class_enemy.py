@@ -1,4 +1,5 @@
 from pygame import Rect
+import copy
 
 class Enemy:
     def __init__(self, typeOf, numberOfSprites, pos, pattern, hp, speed):
@@ -24,18 +25,51 @@ class Enemy:
         if self.sprite_counter >= self.numberOfSprites:
             self.sprite_counter = 0
  
-    def move(self, graphics):
+    def move(self, graphics, tiles):
         
-        if self.pattern[self.walkCounter] is "left":
-            self.pos.x -= self.speed
-        else:
-            self.pos.x += self.speed
+        if self.pattern is "left":
+            if not self.collision_test_move(self.pos, tiles, "left") and self.collision_test_move_vert(self.pos, tiles, "left"):
+                self.pos.x -= self.speed
+            else:
+                self.pattern = "right"
 
-        self.walkCounter += 1
-
-        if self.walkCounter >= len(self.pattern):
-            self.walkCounter = 0
+        elif self.pattern is "right":
+            if not self.collision_test_move(self.pos, tiles, "right") and self.collision_test_move_vert(self.pos, tiles, "right"):
+                self.pos.x += self.speed
+            else:
+                self.pattern = "left"
   
+    def collision_test_move(self, rect, tiles, direction):
+        temp_pos = copy.deepcopy(rect)
+        if direction is "left":
+            temp_pos.x -= (self.speed + 4)
+
+        elif direction is "right":
+            temp_pos.x += (self.speed + 4)
+        
+        hit_list = []
+        for tile in tiles:
+            if temp_pos.colliderect(tile):
+                return True
+        return False
+
+    def collision_test_move_vert(self, rect, tiles, direction):
+        temp_pos = copy.deepcopy(rect)
+      
+        if direction is "left":
+            temp_pos.x -= (self.speed + 60)
+
+        elif direction is "right":
+            temp_pos.x += (self.speed + 60)
+  
+        temp_pos.y += self.speed + 4
+        
+        hit_list = []
+        for tile in tiles:
+            if temp_pos.colliderect(tile):
+                return True
+        return False
+
     def collision_test(self, rect, foe):
         hit_list = []
         
@@ -50,7 +84,7 @@ class Enemy:
         if self.pos.x <= plr_x:
             temp_x = 320 - abs(plr_x - self.pos.x)
         elif self.pos.x > plr_x:
-            temp_x = 320 + abs(plr_x - self.pos.x)  
+            temp_x = 320 + abs(plr_x - self.pos.x)
         temp_y = self.pos.y
         if self.typeOf is "e0":
             i = 0
@@ -59,6 +93,6 @@ class Enemy:
         elif self.typeOf is "e2":
             i = 2
 
-        screen.blit(graphics[i][self.pattern[self.walkCounter]][self.sprite_counter], (temp_x, temp_y))
+        screen.blit(graphics[i][self.pattern][self.sprite_counter], (temp_x, temp_y))
         self.inc()
 
