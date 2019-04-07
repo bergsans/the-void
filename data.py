@@ -30,7 +30,6 @@ foes.append(Enemy("e2", 4, Rect(7500, 332, 60, 60), create_fi_pattern(["left", "
 foes.append(Enemy("e0", 5, Rect(8200, 392, 60, 60), create_fi_pattern(["left", "left", "left", "right", "right", "right"], 2), 1, 2))
 foes.append(Enemy("e0", 5, Rect(8900, 392, 60, 60), create_fi_pattern(["left", "left", "left", "right", "right", "right"], 2), 1, 2))
 
-
 items = []
 items.append(Item("exit_door",Rect(9100,322,128,128)))
 items.append(Item("gem",Rect(410,160,22,25)))

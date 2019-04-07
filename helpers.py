@@ -4,6 +4,7 @@ import os
 
 
 
+
 def create_fi_pattern(moves, speed):
     tempAddMoves = [];
     for move in moves:
@@ -46,6 +47,8 @@ def move_projectiles(shots, pos_tiles, enemies, plr, screen, projectiles, explod
                     test_foe = shot.collision_test2(Rect(shot.abs_x, shot.abs_y, 25, 15), enemy.pos)
                     if test_foe is True:
                         shot.status = "not-active"
+                        explosion_sound = mixer.Sound("sounds/explosion.wav");
+                        explosion_sound.play()
                         if shot.direction is "right":
                             explodingProjectiles.append(Explosion("explode", (shot.x - 40), (shot.y - 70), (shot.abs_x - 40), (shot.abs_y - 70)))
                         else:
@@ -55,11 +58,9 @@ def move_projectiles(shots, pos_tiles, enemies, plr, screen, projectiles, explod
             test_tiles = shot.collision_test(Rect(shot.abs_x, shot.abs_y, 25, 15), pos_tiles)         
 
             if shot.dist <= 0 or test_tiles is True:
+                explosion_sound = mixer.Sound("sounds/explosion.wav");
+                explosion_sound.play()
                 shot.status = "not-active"
-                
-             
-                #explosion_sound.play()
-             
            
                 if shot.direction is "right":
                     explodingProjectiles.append(Explosion("explode", (shot.x - 70), (shot.y - 70), (shot.abs_x - 70), (shot.abs_y - 70)))
