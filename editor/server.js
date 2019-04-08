@@ -24,9 +24,9 @@ const server = app.listen(3000, () => {
 });
 
 function printToMapToFile(undergroundMap) {
-  const map = { map: [...undergroundMap.map] };
+  const map = { l_1: [...undergroundMap.map], enemies: [...undergroundMap.enemies], items: [...undergroundMap.items] };
   const formattedData = JSON.stringify(map, null);
-	fs.writeFile(undergroundMap.file, formattedData, (error) => {
+	fs.writeFile(path.join('levels', undergroundMap.file), formattedData, (error) => {
 		if (error) throw err;
 		else { console.log('Map saved'); }
 	});

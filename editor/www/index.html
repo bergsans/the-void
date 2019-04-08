@@ -8,6 +8,12 @@
   </head>
   <body>
     <div id="container">
+      <div id="items-and-beasts">
+        <img id="other-exit_door" src="/items/door.png" />
+        <img id="other-gem" src="/items/gem.png" />
+        <img id="other-e0" src="/enemies/enemy_1_left0.png" />
+        <img id="other-e2" src="/enemies/enemy_2_left1.png" />
+      </div>
       <div id="map">
         <canvas id="canvas" width="960" height="480"></canvas>
       </div>
@@ -24,6 +30,8 @@
       </div>
     </div>
     <div id="options">
+      <input type="file" name="file" id="file" class="inputfile" />
+      <label for="file">Choose a file</label>
       <input id="file" placeholder="your_map.lev" type="text" />
       <input id="music" placeholder="backgroundmusic.mp3" type="text" />
       <div id="save">SAVE MAP</div>

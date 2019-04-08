@@ -3,9 +3,6 @@ from pygame import init, display, mouse, FULLSCREEN, time, event, draw, QUIT, qu
 import os
 from math import floor
 
-from graphics_sources import ui_elems, explosionsSrc, plr_graphics, bg, tilesSrc, projectiles, enemySrc, itemsSrc
-
-from data import foes, items, level, plr, shots, explodingProjectiles, pos_tiles
 from class_item import Item
 from class_enemy import Enemy
 from class_astronaut import Astronaut 
@@ -13,7 +10,8 @@ from class_level import Level
 from class_projectiles import Projectile
 from class_explosion import Explosion
 from helpers import create_fi_pattern, check_items, check_death_by_foe, render_explosions, move_projectiles, render_ui_missile, render_foes, render_items
-
+from data import foes, items, level, plr, shots, explodingProjectiles, pos_tiles
+from graphics_sources import ui_elems, explosionsSrc, plr_graphics, bg, tilesSrc, projectiles, enemySrc, itemsSrc
 init()
 clock = time.Clock()
 mouse.set_visible(False)

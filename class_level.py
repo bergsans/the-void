@@ -1,9 +1,5 @@
 from pygame import Rect, font
-
-#from graphics_sources import bg
 from math import floor
-
-
 from levels import levels
 
 class Level:
@@ -35,7 +31,6 @@ class Level:
             for tile in layer:
                 temp_x = ((x * 50) + 320) - plr_pos_x
                 if tile != "0":
-                    #self..append(Rect(x * 50, y * 50, 50, 50))
                     screen.blit(tilesSrc[tile],(temp_x, y * 50))
                 x += 1
             y += 1

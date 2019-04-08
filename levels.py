@@ -1,5 +1,5 @@
 import json
 
-with open('old_level.lev', 'r') as f:
+with open('test_this.lev', 'r') as f:
     levels =  json.load(f) 
 

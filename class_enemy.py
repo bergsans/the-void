@@ -37,7 +37,7 @@ class Enemy:
             if not self.collision_test_move(self.pos, tiles, "right") and self.collision_test_move_vert(self.pos, tiles, "right"):
                 self.pos.x += self.speed
             else:
-                self.pattern = "left"
+                self.pattern = "left" 
   
     def collision_test_move(self, rect, tiles, direction):
         temp_pos = copy.deepcopy(rect)
@@ -86,6 +86,7 @@ class Enemy:
         elif self.pos.x > plr_x:
             temp_x = 320 + abs(plr_x - self.pos.x)
         temp_y = self.pos.y
+        i = 0
         if self.typeOf is "e0":
             i = 0
         elif self.typeOf is "e1":

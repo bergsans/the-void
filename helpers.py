@@ -1,14 +1,12 @@
 from pygame import Rect, mixer
 import os
 
-
 def create_fi_pattern(moves, speed):
     tempAddMoves = [];
     for move in moves:
         for n in range(0,int(50 / speed)):
             tempAddMoves.append((move));
     return tempAddMoves;
-
 
 def render_items(itemsSrc, screen, items, plr_x):
     for item in items:
