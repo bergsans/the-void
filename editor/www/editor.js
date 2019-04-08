@@ -96,7 +96,7 @@ const tilesArea = document.querySelector('#tiles');
 
 
 function readSingleFile(evt) {
-    //Retrieve the first (and only!) File from the FileList object
+
     var f = evt.target.files[0]; 
 
     if (f) {
@@ -116,7 +116,7 @@ function readSingleFile(evt) {
     }
   }
 
-  document.getElementById('fileinput').addEventListener('change', readSingleFile, false);
+//  document.getElementById('fileinput').addEventListener('change', readSingleFile, false);
 
 
 

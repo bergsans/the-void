@@ -78,10 +78,12 @@ def check_death_by_foe(enemies, plr_graphics, plr_pos, level, plr):
 def check_items(stuffs, itemsSrc, plr_pos, level):
 
     for item in stuffs:
+
         if item.status is "active":
             test_item = item.collision_test(plr_pos)
             if test_item is True:
-                if item.typeOf is "exit_door":
+                if item.typeOf == "exit_door":
+                  
                     if not level.status is "level_success":
                         level.score += 1000
 

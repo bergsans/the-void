@@ -18,7 +18,9 @@ for enemy in levels['enemies']:
 items = []
 
 for item in levels['items']:   
-    items.append(Item(item['id'],Rect(item['x'],item['y'],item['w'],item['h'])))
+    temp_id = item['id']
+    print(temp_id)
+    items.append(Item(temp_id,Rect(item['x'],item['y'],item['w'],item['h'])))
 
 level = Level("l_1")
 plr = Astronaut(Rect(800, 0, 40, 60), "idle_right")

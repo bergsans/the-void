@@ -87,11 +87,11 @@ class Enemy:
             temp_x = 320 + abs(plr_x - self.pos.x)
         temp_y = self.pos.y
         i = 0
-        if self.typeOf is "e0":
+        if self.typeOf == "e0":
             i = 0
-        elif self.typeOf is "e1":
+        elif self.typeOf == "e1":
             i = 1
-        elif self.typeOf is "e2":
+        elif self.typeOf == "e2":
             i = 2
 
         screen.blit(graphics[i][self.pattern][self.sprite_counter], (temp_x, temp_y))
