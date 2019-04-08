@@ -97,26 +97,25 @@ const tilesArea = document.querySelector('#tiles');
 
 function readSingleFile(evt) {
 
-    var f = evt.target.files[0]; 
+    const f = evt.target.files[0]; 
 
     if (f) {
-      var r = new FileReader();
+      const r = new FileReader();
       r.onload = function(e) { 
-	      var contents = e.target.result;
-        alert( "Got the file.n" 
-              +"name: " + f.name + "n"
-              +"type: " + f.type + "n"
-              +"size: " + f.size + " bytesn"
-              + "starts with: " + contents.substr(1, contents.indexOf("n"))
-        );  
+	      const contents = JSON.parse(e.target.result);
+        map = [];
+        map = [...contents.l_1]
+        items = [];
+        items = [...contents.items];
+        enemies = [];
+        enemies = [...contents.enemies];
       }
       r.readAsText(f);
     } else { 
       alert("Failed to load file");
     }
   }
-
-//  document.getElementById('fileinput').addEventListener('change', readSingleFile, false);
+document.getElementById('fileinput').addEventListener('change', readSingleFile);
 
 
 
@@ -168,8 +167,6 @@ function isAnythingHere(pos1, pos2) {
        return false;
     }
 }
-
-
 
 document.addEventListener('click', (e) => {
   let id = e.target.id;
@@ -279,7 +276,6 @@ function drawItemsAndEnemies() {
       ctx.drawImage(other[tempKey], temp_x, items[i].y); 
     }
   }
-
 }
 
 setInterval(() => {
