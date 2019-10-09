@@ -27,8 +27,8 @@ temp_time = 0
 
 is_game_ongoing = True
 
-mixer.music.load(os.path.join("sounds", "background.mp3"))
-mixer.music.play(-1)
+#mixer.music.load(os.path.join("sounds", "background.mp3"))
+#mixer.music.play(-1)
 
 
 while is_game_ongoing is True:
