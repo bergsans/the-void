@@ -15,7 +15,7 @@ from graphics_sources import ui_elems, explosionsSrc, plr_graphics, bg, tilesSrc
 init()
 clock = time.Clock()
 mouse.set_visible(False)
-screen = display.set_mode((640, 480), FULLSCREEN)
+screen = display.set_mode((640, 480))
 
 moves_right = False
 moves_left = False
