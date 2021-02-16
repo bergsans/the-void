@@ -1,6 +1,9 @@
 # The Void
-Deprecated project. Vill rise from the Dead in another medium, on the Web.
+Deprecated project.
 
-Requires pygame (install with pip3) and python3.
+```
+pip3 install pygame
+python3 main.py
+```
 
 Music by Dennis Lindfors and Thomas Hellgren.
